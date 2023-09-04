@@ -1,0 +1,677 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background: #333;
+    color: hsl(180, 3%, 6%);
+    width: 100%;
+  }
+  nav{
+    background: #fff;
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+  .links{
+    width: 40%;
+    padding: 5px;
+  }
+  a{
+    list-style-type: none;
+    text-decoration: none;
+    color: black;
+  }
+  .menu{
+    margin-top: 18px;
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    align-items: center; 
+    margin-left: 15px;
+  }
+  li{
+    list-style-type: none;
+  }
+  li>a{
+    padding: 8px;
+  }
+  .option_menu{
+    padding: 5px;
+  }
+  .option_menu:hover{
+    border: 1px solid #585555;
+  }
+  .btn_burger{
+    margin-top: -3px;
+  }
+  /* li>a:hover{
+    border: 1px solid #202e51;
+    transition: all .5s ease-in-out;
+  } */
+.menuBurger{
+  position: absolute;
+  top:25px;
+  left: 5px;
+}
+/* Submenu section */
+.submenu{
+  background-color: #fff;
+  margin-top: 8px; 
+  padding: 30px;
+  margin-left: -30px;
+  display: none;
+  height: 133vh;
+  width: 100%;
+  transform: translateX(-150px);
+}
+@keyframes slideLeft {
+  from{
+    transform:translateX(-150px);
+  }
+  to{
+    transform: translateX(0);
+  }
+}
+@keyframes slideRight {
+  from{
+    transform:translateX(0);
+  }
+  to{
+    transform: translateX(-150px);
+  }
+}
+@keyframes slideTop {
+  from{
+    transform:translateY(0);
+  }
+  to{
+    transform: translateY(15px);
+  }
+}
+.open{
+  max-width: 350px;
+  display: block;
+  margin-bottom: 40px;
+  color: #0f0f0f;
+  background-color: #fff;
+  height: 150vh;
+  will-change: transform;
+  flex-direction: column;
+  transform: translateX(0px);
+  
+  animation-name: slideLeft ;
+  animation-duration: 0.09s;
+  animation-timing-function: ease-out;
+  animation-delay: 0.09s;
+  animation-direction: var(--speed);
+  animation-fill-mode: backwards;
+  transition: 350ms;
+}
+.open.active{
+  opacity:1;
+  visibility: visible;
+  transform: translateX(-10);
+  transition: var(--speed) ease;
+}
+.submenu.active{
+  left: 0;
+}
+.menu-bar{
+  font-size: 1.2em;
+  color: #121313;
+  cursor:'pointer';
+}
+.angleRight{
+  position: absolute;
+  left: 280px;
+  font-size: 1.2em;
+  opacity: 0.7;
+}
+.angleRight:hover{
+  opacity: 1;
+}
+.angleDown{
+  position: absolute;
+  top: 10px;
+  left: 70px;
+  font-size: 1.1em;
+}
+.menu-close{
+  position: absolute;
+  top: -15px;
+  left: 350px;
+  font-size: 1.5em;
+  z-index: 1000;
+  color: red;
+}
+.Sign{
+  position: fixed;
+  top: -25px;
+  background-color: #19192e;
+  padding: 12px;
+  text-align: center;
+  align-items: center;
+  color: #fff;
+  width: 100%; 
+  z-index: 10000;
+}
+span{
+  margin-left: 10px;
+}
+.Sign>p{
+  margin-left: -50px;
+  cursor: pointer;
+}
+.btn_close{
+  font-size: 25px;
+  cursor: pointer;
+  position: fixed;
+}
+.subinfo{
+  margin-top: 25px;
+  overflow: scroll;
+  scroll-behavior: smooth;
+  padding: 20px;
+  /* margin-top: 45px; */
+  width: 100%;
+  height: 100vh;
+}
+.subinfo>article{
+  border-bottom: 1px solid rgba(128, 128, 128, 0.399);
+  width: 500%
+}
+h2{
+  margin-top: 25px;
+  font-size: 1.1em;
+}
+.menuArticle{
+  padding: 10px;
+}
+.menuArticle>li{
+  position: relative;
+  padding: 8px;
+  cursor: pointer;
+  margin-left: -25px;
+
+}
+.menuArticle>li:hover{
+  background-color: #5855552b;
+}
+
+/* Sous menu Sidebar Music */
+li>.Music{
+  position: relative;
+  width: 100%;
+  border: none;
+}
+.Music{
+  position: absolute;
+  width: 500%;
+  display: inline-block;
+  display: none;
+  background-color: #202e51;
+  padding: 40px auto;
+}
+.scrollbar:hover{
+  background-color: #5855552b;
+}
+.scrollbar{
+  position: absolute;
+  top: 38px;
+  left: -10px;
+  margin-top: -20px;
+  display: flex;
+  font-size: 1.2em;
+  width: 500%;
+  padding: 18px;
+  border-bottom: 1px solid #585555;
+  margin-left: -15px;
+  z-index: 100;
+}
+.scrollbar>.btnArrow{
+  margin-left: 30px;
+}
+.contains{
+  margin-top: 55px;
+  width: 500%;
+  padding: 10px;
+}
+.contains>ul>li{
+  margin-top: 10px;
+  width: 500%;
+  border: none;
+}
+.contains>ul>li:hover{
+  background-color: #5855552b;
+}
+.sous_contains{
+  padding: 20px;
+  margin-left: -50px; 
+}
+h1{
+  margin-left: -5px;
+  font-size: 1.2em;
+}
+
+.openMusic{
+  margin-top: -90px;
+  margin-left: -20px;
+  width: 500%;
+  display: block;
+  color: #0f0f0f;
+  background-color: #fff;
+  height: 130vh;
+  padding: 40px;
+  z-index: 1000;
+
+  transform: translateX(0px);
+  
+  animation-name: slideLeft ;
+  animation-duration: 0.1s;
+  animation-timing-function: ease-in-out;
+  animation-delay: 0.1s;
+  animation-direction: alternate;
+  animation-fill-mode: both;
+  transition: 350ms;
+}
+.openMusic.active{
+  opacity:1;
+  visibility: visible;
+  transform: translateX(-120);
+  transition: var(--speed) ease;
+}
+
+/* AppStore Section */
+
+.openStore{
+  margin-top: -90px;
+  margin-left: -20px;
+  width: 500%;
+  display: block;
+  color: #0f0f0f;
+  background-color: #fff;
+  height: 130vh;
+  padding: 40px;
+  z-index: 1000;
+
+  transform: translateX(0px);
+  
+  animation-name: slideLeft ;
+  animation-duration: 0.09s;
+  animation-timing-function: ease-out;
+  animation-delay: 0.09s;
+  animation-direction: var(--speed);
+  animation-fill-mode: backwards;
+  transition: 350ms;
+}
+.Store{
+  position: absolute;
+  width: 500%;
+  display: inline-block;
+  display: none;
+  background-color: #202e51;
+  padding: 40px auto;
+}
+.scrollbarStore:hover{
+  background-color: #5855552b;
+}
+.scrollbarStore{
+  position: absolute;
+  top: 5px;
+  left: 20px;
+  margin-top: -20px;
+  display: flex;
+  font-size: 1.2em;
+  width: 500%;
+  padding: 18px;
+  border-bottom: 1px solid #585555;
+  margin-left: -15px;
+  z-index: 100;
+}
+.scrollbarStore>.btnArrow{
+  margin-left: 30px;
+}
+
+/*section Books  */
+
+
+.openBook{
+  margin-top: -130px;
+  margin-left: -20px;
+  width: 500%;
+  display: block;
+  color: #0f0f0f;
+  background-color: #fff;
+  height: 130vh;
+  padding: 40px;
+  z-index: 1000;
+
+  transform: translateX(0px);
+  
+  animation-name: slideLeft ;
+  animation-duration: 0.09s;
+  animation-timing-function: ease-out;
+  animation-delay: 0.09s;
+  animation-direction: var(--speed);
+  animation-fill-mode: backwards;
+  transition: 350ms;
+}
+.Book{
+  position: absolute;
+  width: 500%;
+  display: inline-block;
+  display: none;
+  background-color: #202e51;
+  padding: 40px auto;
+}
+.scrollbarBook:hover{
+  background-color: #5855552b;
+}
+.scrollbarBook{
+  position: absolute;
+  top: 5px;
+  left: 20px;
+  margin-top: -20px;
+  display: flex;
+  font-size: 1.2em;
+  width: 500%;
+  padding: 18px;
+  border-bottom: 1px solid #585555;
+  margin-left: -15px;
+  z-index: 100;
+}
+.scrollbarBook>.btnArrow{
+  margin-left: 30px;
+}
+
+/* Section Computer */
+
+.openComp{
+  margin-top: -230px;
+  margin-left: -20px;
+  width: 500%;
+  display: block;
+  color: #0f0f0f;
+  background-color: #fff;
+  height: 130vh;
+  padding: 40px;
+  z-index: 1000;
+
+  transform: translateX(0px);
+  
+  animation-name: slideLeft ;
+  animation-duration: 0.09s;
+  animation-timing-function: ease-out;
+  animation-delay: 0.09s;
+  animation-direction: var(--speed);
+  animation-fill-mode: backwards;
+  transition: 350ms;
+}
+.Comp{
+  position: absolute;
+  width: 500%;
+  display: inline-block;
+  display: none;
+  background-color: #202e51;
+  padding: 40px auto;
+}
+.scrollbarComp:hover{
+  background-color: #5855552b;
+}
+.scrollbarComp{
+  position: absolute;
+  top: 5px;
+  left: 0px;
+  margin-top: -20px;
+  display: flex;
+  font-size: 1.2em;
+  width: 500%;
+  padding: 18px;
+  border-bottom: 1px solid #585555;
+  margin-left: -15px;
+  z-index: 100;
+}
+.scrollbarComp>.btnArrow{
+  margin-left: 30px;
+}
+
+/* section Electronic */
+
+.openElect{
+  margin-top: -270px;
+  margin-left: -20px;
+  width: 500%;
+  display: block;
+  color: #0f0f0f;
+  background-color: #fff;
+  height: 130vh;
+  padding: 40px;
+  z-index: 1000;
+
+  transform: translateX(0px);
+  
+  animation-name: slideLeft ;
+  animation-duration: 0.09s;
+  animation-timing-function: ease-out;
+  animation-delay: 0.09s;
+  animation-direction: var(--speed);
+  animation-fill-mode: backwards;
+  transition: 350ms;
+}
+.Elect{
+  position: absolute;
+  width: 500%;
+  display: inline-block;
+  display: none;
+  background-color: #202e51;
+  padding: 40px auto;
+}
+.scrollbarElect:hover{
+  background-color: #5855552b;
+}
+.scrollbarElect{
+  position: absolute;
+  top: 5px;
+  left: 0px;
+  margin-top: -20px;
+  display: flex;
+  font-size: 1.2em;
+  width: 500%;
+  padding: 18px;
+  border-bottom: 1px solid #585555;
+  margin-left: -15px;
+  z-index: 100;
+}
+.scrollbarElect>.btnArrow{
+  margin-left: 30px;
+}
+
+/* Smart Phone Section */
+
+.openPhone{
+  margin-top: -300px;
+  margin-left: -20px;
+  width: 500%;
+  display: block;
+  color: #0f0f0f;
+  background-color: #fff;
+  height: 130vh;
+  padding: 40px;
+  z-index: 1000;
+
+  transform: translateX(0px);
+  
+  animation-name: slideLeft ;
+  animation-duration: 0.09s;
+  animation-timing-function: ease-out;
+  animation-delay: 0.09s;
+  animation-direction: var(--speed);
+  animation-fill-mode: backwards;
+  transition: 350ms;
+}
+.phone{
+  position: absolute;
+  width: 500%;
+  display: inline-block;
+  display: none;
+  background-color: #202e51;
+  padding: 40px auto;
+}
+.scrollbarPhone:hover{
+  background-color: #5855552b;
+}
+.scrollbarPhone{
+  position: absolute;
+  top: 5px;
+  left: 0px;
+  margin-top: -20px;
+  display: flex;
+  font-size: 1.2em;
+  width: 500%;
+  padding: 18px;
+  border-bottom: 1px solid #585555;
+  margin-left: -15px;
+  z-index: 100;
+}
+.scrollbarPhone>.btnArrow{
+  margin-left: 30px;
+}
+
+/* section Gift Card */
+
+.openCard{
+  margin-top: -450px;
+  margin-left: -20px;
+  width: 500%;
+  display: block;
+  color: #0f0f0f;
+  background-color: #fff;
+  height: 130vh;
+  padding: 40px;
+  z-index: 1000;
+
+  transform: translateX(0px);
+  
+  animation-name: slideLeft ;
+  animation-duration: 0.09s;
+  animation-timing-function: ease-out;
+  animation-delay: 0.09s;
+  animation-direction: var(--speed);
+  animation-fill-mode: backwards;
+  transition: 350ms;
+}
+.card{
+  position: absolute;
+  width: 500%;
+  display: inline-block;
+  display: none;
+  background-color: #202e51;
+  padding: 40px auto;
+}
+.scrollbarCard:hover{
+  background-color: #5855552b;
+}
+.scrollbarCard{
+  position: absolute;
+  top: 5px;
+  left: 0px;
+  margin-top: -15px;
+  display: flex;
+  font-size: 1.2em;
+  width: 500%;
+  padding: 18px;
+  border-bottom: 1px solid #585555;
+  margin-left: -15px;
+  z-index: 100;
+}
+.scrollbarCard>.btnArrow{
+  margin-left: 30px;
+}
+
+/* international Shopping section */
+
+.openShop{
+  margin-top: -510px;
+  margin-left: -20px;
+  width: 500%;
+  display: block;
+  color: #0f0f0f;
+  background-color: #fff;
+  height: 130vh;
+  padding: 40px;
+  z-index: 1000;
+
+  transform: translateX(0px);
+  
+  animation-name: slideLeft ;
+  animation-duration: 0.09s;
+  animation-timing-function: ease-out;
+  animation-delay: 0.09s;
+  animation-direction: var(--speed);
+  animation-fill-mode: backwards;
+  transition: 350ms;
+}
+.shop{
+  position: absolute;
+  width: 500%;
+  display: inline-block;
+  display: none;
+  background-color: #202e51;
+  padding: 40px auto;
+}
+.scrollbarShop:hover{
+  background-color: #5855552b;
+}
+.scrollbarShop{
+  position: absolute;
+  top: 5px;
+  left: 0px;
+  margin-top: -10px;
+  display: flex;
+  font-size: 1.2em;
+  width: 500%;
+  padding: 18px;
+  border-bottom: 1px solid #585555;
+  margin-left: -15px;
+  z-index: 100;
+}
+.scrollbarShop>.btnArrow{
+  margin-left: 30px;
+}
+
+/* Section ScrollDown */
+
+#menuchange{
+  display: none;
+}
+.scrollDown{
+  /* position: absolute; */
+  /* padding: 12px; */
+  width: 100%;
+  display: none;
+}
+.openScrollDown{
+  display: block;
+  width: 100%;
+  transform: translateY(0px);
+  
+  animation-name: slideTop ;
+  animation-duration: 0.09s;
+  animation-timing-function: ease-out;
+  animation-delay: 0.09s;
+  animation-direction: var(--speed);
+  animation-fill-mode: backwards;
+  transition: 350ms;
+}
+.subDown>li{
+  margin-top: 12px;
+  padding: 8px;
+  margin-left: -30px;
+}
+.subDown>li:hover{
+  background-color: #5855552b;
+}
